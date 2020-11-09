@@ -1,0 +1,417 @@
+<template>
+	<view class="container">		
+		<!-- 律师所背景图 -->
+		<view class="top-bg">
+			<image class="bg-img"  src="../../../static/lawFirm/1.jpeg" mode="widthFix"></image>
+		</view>		
+		<!-- 律师所描述 -->
+		<view class="lawFirm-desc">
+			<view class="head">
+				<view class="head-btn">
+					<text class="btn-text ry">荣誉证明</text>
+					<text class="btn-text zz">营业执照</text>
+				</view>
+			</view>
+			<view class="name">
+				<text class="name-text">江苏开炫律师事务所</text>
+			</view>
+			<view class="loc">
+				<image class="loc-icon" src="../../../static/home/newslist/icon_address@3x.png" mode=""></image>
+				<text class="loc-name">江苏无锡</text>
+			</view>
+			<view class="content">
+				<text class="content-text">江苏开炫律师事务所是无锡地区最大的律师事务所之一，业务领域涵盖诉讼仲裁、外商投资、劳动/人力资源，知识产权，房地产，税务，收购、兼并与重组，基金与创业投资，海关与国际贸易，行政审批及争议解决。专注为长三角地区知名外商投资企业及部分大型国有企业和民营企业之日常运营提供全面法律服务。</text>
+			</view>
+			<view class="more">
+				<text class="more-text">查看更多</text>
+			</view>
+		</view>
+		<!-- 律所律师 -->
+		<view class="module-head">
+		    <text class="head-text">律所律师</text>
+		</view>
+		<view class="law-list">
+			<block v-for="(value, index) in lawlist" :key="index">
+				<view class="list-cell" @click="goLawDetail(value)">
+					<view class="cell-header">
+						<text class="law-no">执照编号：{{value.no}}</text>
+						<view class="online-status">
+							<text class="law-statusBg"></text>
+							<text class="law-status">{{value.isOnline}}</text>
+						</view>
+					</view>
+					<view class="cell-body">
+						<view class="lawInfo">
+							<image class="law-ava" src="../../../static/home/newslist/article-icon2.png" mode=""></image>
+							<text class="law-name">{{value.name}}</text>
+							<text class="law-time">执业{{value.time}}</text>
+						</view>
+						<view class="lawAble">
+							<view class="tag-view">
+								<block v-for="(tag, tagID) in value.tag" :key="tagID">
+									<text class="tag">{{tag}}</text>
+								</block>
+							</view>
+							<view class="rate">
+								<uni-rate class="score" :touchable="false" :size="16" :value="value.score" @change="onChange" />
+								<view class="contact">
+									<image class="contact-icon" src="../../../static/lawFirm/icon_consult@3x.png" mode=""></image>
+								    <text class="contact-text">立即咨询</text>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="line"></view>
+			</block>
+		</view>
+		<!-- 律师所的图 -->
+		<view class="law-img">
+			<image class="head-icon" src="../../../static/home/newslist/article-icon.png" mode=""></image>
+		</view>
+		<!-- 返回按钮 -->
+		<view class="back" @click="goBack()">
+			<image class="back-image"  src="../../../static/icon_back_white@3x.png" mode="widthFix"></image>
+		</view>	
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				lawlist:[
+					{
+						no:'136716387168868319',
+						isOnline:'在线',
+						name:'周鹏',
+						ava:'',
+						time:'13',
+						tag:['借款借贷','交通事故','家庭婚姻'],
+						score:'1'
+					},{
+						no:'136716387168868319',
+						isOnline:'离线',
+						name:'小猪',
+						ava:'',
+						time:'5',
+						tag:['合同纠纷','交通','借款借贷'],
+						score:'3'
+					},{
+						no:'136716387168868319',
+						isOnline:'在线',
+						name:'小狗',
+						ava:'',
+						time:'9',
+						tag:['合同纠纷','交通','借款借贷','交通事故','家庭婚姻','合同纠纷'],
+						score:'4'
+					},
+					{
+						no:'136716387168868319',
+						isOnline:'在线',
+						name:'小猫',
+						ava:'',
+						time:'6',
+						tag:['合同纠纷','交通','借款借贷','交通事故','家庭婚姻','合同纠纷'],
+						score:'5'
+					},
+					{
+						no:'136716387168868319',
+						isOnline:'在线',
+						name:'周鹏',
+						ava:'',
+						time:'13',
+						tag:['借贷','交通事故'],
+						score:'5'
+					},
+					{
+						no:'136716387168868319',
+						isOnline:'在线',
+						name:'周鹏',
+						ava:'',
+						time:'13',
+						tag:['借贷','交通事故'],
+						score:'5'
+					}
+				],
+				tagList:[
+					'交通','借款借贷','交通事故','家庭婚姻','合同纠纷','交通','借款借贷','交通事故','家庭婚姻','合同纠纷'
+				],
+				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+			}
+		},
+		methods: {
+			goBack:function() {
+				uni.navigateBack();
+			}
+	
+		}
+	}
+</script>
+
+<style>
+	.container {
+		font-size: 12px;
+		position: relative;
+	}
+	
+	.back {
+		position: absolute;
+		top: 30;
+		left: 10;
+		width: 18px;
+		height: 32px;
+	}
+	
+	.back-image {
+		width: 9px;
+		height: 16px;
+	}
+	
+	.top-bg {
+		height: 184px;
+		position: relative;
+		background-color: #3F536E;
+	}
+	
+	.bg-img {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	
+	.law-img {
+		position: absolute;
+		top: 130px;
+		left: 15px;
+		width: 90px;
+		height: 90px;
+	}
+	
+	.head-icon {		
+		width: 90px;
+		height: 90px;
+		border-radius: 6px;
+	}
+	
+	.lawFirm-desc {
+		background-color: #FFFFFF;
+		position: relative;
+		padding: 0 15px 15px 15px;
+		margin-top: -6px;
+		border-top-left-radius: 6px;
+		border-top-right-radius: 6px;
+		border-bottom-color: #f7f7f7;
+		border-bottom-width: 5px;
+		flex-direction: column;
+	}
+	
+	.head {
+		margin-top: 20px;
+		flex-direction: row;
+		justify-content: flex-end;
+	}
+	
+	
+	
+	.head-btn {
+		height: 30px;
+		flex-direction: row;
+	}
+	
+	
+	.btn-text {
+		width: 80px;
+		height: 30px;
+		line-height: 30px;
+		border-radius: 15px;
+		color: #FFFFFF;
+		font-size:12px;
+		text-align: center;
+		background-color: #2FA2F8;
+	}
+	
+	.ry {
+		background-color: #2FA2F8;
+		/* background-image: linear-gradient(-88deg, #2FA2F8 0%, #2F69F8 93%); */
+	}
+	.zz {
+		margin-left: 10px;
+		background-color: #2FA2F8;
+		/* background-image: linear-gradient(90deg, #FFB701 7%, #F8E71C 100%); */
+	}
+	
+	
+	.name-text {
+		margin-top: 12px;
+		color: #333333;
+		font-size: 18px;
+	}
+	
+	.loc {
+		margin-top: 10px;
+		flex-direction: row;
+		align-items: center;
+		height: 17px;
+	}
+	
+	.loc-icon {
+		width: 14px;
+		height: 14px;
+	}
+	.loc-name {
+		margin-left: 5px;
+		font-size: 12px;
+		color: #999999;
+	}
+	
+	.content-text {
+		margin-top: 10px;
+		color: #666666;
+		font-size: 14px;
+		height: 120px;
+		overflow: hidden;
+		text-overflow:ellipsis;
+	}
+	
+	.more-text {
+		margin-top: 5px;
+		color: #999999;
+		font-size: 10px;
+		text-align: center;
+	}
+	
+	.module-head {
+		background-color: #ffffff;
+		margin-top: 10px;
+		padding-left: 15px;
+		border-bottom-color: #f7f7f7;
+		border-bottom-width: .5px;
+	}
+	.head-text {
+		height: 44px;
+		line-height: 44px;
+		color: #333333;
+		font-size: 16px;
+	}
+	.law-list {
+		margin-top: .5px;
+	}
+	.list-cell {
+		height: 163px;
+		padding: 0px 15px;
+		background-color: #FFFFFF;
+	}
+	.cell-header {
+		height: 42px;
+		align-items: center;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.line {
+		height: .5px;
+		background-color: #ECECEC;
+		margin-left: 15px;
+	}
+	.law-no {
+		color: #666666;
+		font-size: 12px;
+	}
+	.online-status {
+		flex-direction: row;
+		align-items: center;
+	}
+	.law-statusBg {
+		width: 5px;
+		height: 5px;
+		border-radius: 2.5px;
+		background-color: #13BF6C;
+	}
+	.law-status {
+		margin-left: 5px;
+		color: #13BF6C;
+		font-size: 12px;
+	}
+	.cell-body {
+		flex-direction: row;
+		height: 106px;
+	}
+	.lawInfo {
+		width: 64px;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.law-ava {
+		width: 64px;
+		height: 64px;
+	}
+	.law-name {
+		height: 20px;
+		color: #333333;
+		font-size: 14px;
+		margin-top: 5px;
+		text-align: center;
+	}
+	.law-time {
+		margin-top: 0px;
+		color: #999999;
+		font-size: 12px;
+		text-align: center;
+	}
+	.lawAble {
+		flex: 1;
+		margin-left: 15px;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	.tag-view {
+		flex-direction: row;
+		flex-wrap: wrap;
+		text-align: center;
+		height: 60px;
+		overflow: hidden;
+	}
+	
+	.tag {
+		width: 64px;
+		height: 25px;
+		line-height: 25px;
+		border-color:  #ECECEC;
+		border-width: .5px;
+		border-style: solid;
+		margin-right: 2px;
+		margin-bottom: 10px;
+		border-radius: 12.5px;
+		font-size: 12px;
+		text-align: center;
+	}
+	
+	.rate {
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	
+	.contact {
+		height: 20px;
+		flex-direction: row;
+		align-items: center;
+	}
+	
+	.contact-icon {
+		width: 16px;
+		height: 16px;
+	}
+	.contact-text {
+		width: 56px;
+		margin-left: 8px;
+		color: #666666;
+		font-size: 14px;
+	}
+	
+	
+	
+</style>

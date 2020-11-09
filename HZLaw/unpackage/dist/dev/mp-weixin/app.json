@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/tabBar/index/index",
+    "pages/tabBar/law/index",
+    "pages/tabBar/mine/index",
+    "pages/index/lawfirm/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "backgroundColor": "#fcfcfc"
+  },
+  "tabBar": {
+    "color": "#CCCCCC",
+    "selectedColor": "#2F69F8",
+    "borderStyle": "white",
+    "backgroundColor": "#f8f8f9",
+    "list": [
+      {
+        "pagePath": "pages/tabBar/index/index",
+        "iconPath": "static/tabBar/icon_tab_home_gray@3x.png",
+        "selectedIconPath": "static/tabBar/icon_tab_home_color@3x.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tabBar/law/index",
+        "iconPath": "static/tabBar/icon_tab_lawyer_gray@3x.png",
+        "selectedIconPath": "static/tabBar/icon_tab_lawyer_color@3x.png",
+        "text": "律师"
+      },
+      {
+        "pagePath": "",
+        "iconPath": "static/tabBar/icon_tab_message_gray@3x.png",
+        "selectedIconPath": "static/tabBar/icon_tab_message_color@3x.png",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/tabBar/mine/index",
+        "iconPath": "static/tabBar/icon_tab_mine_gray@3x.png",
+        "selectedIconPath": "static/tabBar/icon_tab_mine_color@3x.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+}
