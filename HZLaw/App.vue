@@ -13,6 +13,16 @@ export default {
 </script>
 
 <style>
+	.sigle-row {
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.back-arrow {
+		width: 9px !important;
+		height: 16px !important;
+	}
+	
 /* 解决头条小程序组件内引入字体不生效的问题 */
 /* #ifdef MP-TOUTIAO */
 @font-face {

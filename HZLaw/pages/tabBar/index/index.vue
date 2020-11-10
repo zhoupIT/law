@@ -21,19 +21,19 @@
 		</view>		
 		<!-- 功能 -->
 		<view class="shortcut">
-			<view class="fun">
+			<view class="fun" @click="goShortcutDetail('../../index/contract/index')">
 				<image src="../../../static/home/shortcut/icon_shortcut_1@3x.png" mode=""></image>
 				<text>文书合同</text>
 			</view>
-			<view class="fun">
+			<view class="fun" @click="goShortcutDetail('../../index/lawConsult/index')">
 				<image src="../../../static/home/shortcut/icon_shortcut_2@3x.png" mode=""></image>
 				<text class="">法律咨询</text>
 			</view>
-			<view class="fun">
+			<view class="fun" @click="goShortcutDetail(url)">
 				<image src="../../../static/home/shortcut/icon_shortcut_3@3x.png" mode=""></image>
 				<text class="">费用计算</text>
 			</view>
-			<view class="fun">
+			<view class="fun" @click="goShortcutDetail('../../index/vipService/index')">
 				<image src="../../../static/home/shortcut/icon_shortcut_4@3x.png" mode=""></image>
 				<text class="">VIP通道</text>
 			</view>
@@ -144,9 +144,18 @@
 		},
 		methods: {
 			goLawFirmDetail:function(val) {
-				console.log('132131')
 				uni.navigateTo({
 					url: '../../index/lawfirm/index'
+				});
+			},
+			goShortcutDetail:function(url) {
+				uni.navigateTo({
+					url: url
+				});
+			},
+			goContractDetail:function() {
+				uni.navigateTo({
+					url: ''
 				});
 			},
 			

@@ -1,42 +1,26 @@
 <template>
-	<view class="container">		
+	<view class="container">
+		<!-- 搜索栏 -->
+		<uni-search-bar class="search" @confirm="" @input="" placeholder="请输入合同关键字" radius="16" bgColor="#F6F7F8" />
 		<!-- 下拉栏 -->
-		<HMfilterDropdown :filterData="filterData" @confirm="confirm"></HMfilterDropdown>
-		<!-- 律所律师 -->
+		<HMfilterDropdown class="dropdown" :filterData="filterData" @confirm="confirm"></HMfilterDropdown>
+		<!-- 文书合同 -->
 		<view class="law-list">
-			<block v-for="(value, index) in lawlist" :key="index">
+			<block v-for="(value, index) in contractlist" :key="index">
 				<view class="list-cell" @click="goLawDetail(value)">
-					<view class="cell-header">
-						<text class="law-no">执照编号：{{value.no}}</text>
-						<view class="online-status">
-							<text class="law-statusBg"></text>
-							<text class="law-status">{{value.isOnline}}</text>
-						</view>
-					</view>
-					<view class="cell-body">
-						<view class="lawInfo">
-							<image class="law-ava" src="../../../static/home/newslist/article-icon2.png" mode=""></image>
-							<text class="law-name">{{value.name}}</text>
-							<text class="law-time">执业{{value.time}}</text>
-						</view>
-						<view class="lawAble">
-							<view class="tag-view">
-								<block v-for="(tag, tagID) in value.tag" :key="tagID">
-									<text class="tag">{{tag}}</text>
-								</block>
+					<image class="vip" src="../../../static/home/contract/icon_contract_free@3x.png" mode="" v-if="value.isVip"></image>
+					<image class="contract-preview" src="" mode=""></image>
+					<view class="contract">
+						<text class="contract-name sigle-row">{{value.name}}</text>
+						<view class="contract-price">
+							<view class="price-tool">
+								<text>￥</text>
+								<text class="price">{{value.price}}</text>
 							</view>
-							<view class="rate">
-								<view class="score"></view>
-								<!-- <uni-rate class="score" :touchable="false" :size="16" :value="value.score" @change="onChange" /> -->
-								<view class="contact">
-									<image class="contact-icon" src="../../../static/lawFirm/icon_consult@3x.png" mode=""></image>
-								    <text class="contact-text">立即咨询</text>
-								</view>
-							</view>
+							<text class="sales">销量 {{value.sales}}</text>
 						</view>
 					</view>
 				</view>
-				<view class="line"></view>
 			</block>
 		</view>
 		
@@ -54,7 +38,7 @@
 			return {
 				filterData:[
 	{
-		name:'所在区域',
+		name:'合同类型',
 		"type": 'hierarchy',
 		"submenu": [{
 				"name": '附近',
@@ -303,7 +287,7 @@
 		]
 	},
 	{
-		"name":'执业年限',
+		"name":'相关行业',
 		"type": 'hierarchy',
 		"submenu": [
 			{
@@ -325,64 +309,36 @@
 		]
 	}
 ],
-				lawlist:[
+				contractlist:[
 					{
-						no:'136716387168868319',
-						isOnline:'在线',
-						name:'周鹏',
-						ava:'',
-						time:'13',
-						tag:['借款借贷','交通事故','家庭婚姻'],
-						score:'1'
-					},{
-						no:'136716387168868319',
-						isOnline:'离线',
-						name:'小猪',
-						ava:'',
-						time:'5',
-						tag:['合同纠纷','交通','借款借贷'],
-						score:'3'
-					},{
-						no:'136716387168868319',
-						isOnline:'在线',
-						name:'小狗',
-						ava:'',
-						time:'9',
-						tag:['合同纠纷','交通','借款借贷','交通事故','家庭婚姻','合同纠纷'],
-						score:'4'
+						icon:'',
+						isVip:true,
+						name:'房屋租赁合同房屋租赁合同房屋租赁合同',
+						price:'10931',
+						sales:'5312321'
 					},
 					{
-						no:'136716387168868319',
-						isOnline:'在线',
-						name:'小猫',
-						ava:'',
-						time:'6',
-						tag:['合同纠纷','交通','借款借贷','交通事故','家庭婚姻','合同纠纷'],
-						score:'5'
+						icon:'',
+						isVip:false,
+						name:'房屋租赁合同1',
+						price:'546',
+						sales:'34'
 					},
 					{
-						no:'136716387168868319',
-						isOnline:'在线',
-						name:'周鹏',
-						ava:'',
-						time:'13',
-						tag:['借贷','交通事故'],
-						score:'5'
+						icon:'',
+						isVip:false,
+						name:'房屋租赁合同2',
+						price:'1324',
+						sales:'64'
 					},
 					{
-						no:'136716387168868319',
-						isOnline:'在线',
-						name:'周鹏',
-						ava:'',
-						time:'13',
-						tag:['借贷','交通事故'],
-						score:'5'
+						icon:'',
+						isVip:false,
+						name:'房屋租赁合同3',
+						price:'989',
+						sales:'38'
 					}
-				],
-				tagList:[
-					'交通','借款借贷','交通事故','家庭婚姻','合同纠纷','交通','借款借贷','交通事故','家庭婚姻','合同纠纷'
-				],
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+				]
 			}
 		},
 		methods: {
@@ -399,130 +355,93 @@
 		font-size: 12px;
 		position: relative;
 	}
-
-	.list-cell {
-		height: 163px;
-		padding: 0px 15px;
+	
+	.search {
+		position: fixed;
+		top: var(--window-top);
+		left: 0;
+		right: 0;
+		height: 52px;
+		/* 下拉选择框的z-index是997 */
+		z-index: 996;
 		background-color: #FFFFFF;
 	}
 	
-	.list-cell:nth-child(1) {
-		margin-top: var(--window-top);
+	.dropdown {
+		top: calc(52px + var(--window-top));
 	}
 	
-	.cell-header {
-		height: 42px;
-		display: flex;
-		align-items: center;
-		flex-direction: row;
-		justify-content: space-between;
-	}
-	.line {
-		height: .5px;
-		background-color: #ECECEC;
-		margin-left: 15px;
-	}
-	.law-no {
-		color: #666666;
-		font-size: 12px;
-	}
-	.online-status {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
-	.law-statusBg {
-		width: 5px;
-		height: 5px;
-		border-radius: 2.5px;
-		background-color: #13BF6C;
-	}
-	.law-status {
-		margin-left: 5px;
-		color: #13BF6C;
-		font-size: 12px;
-	}
-	.cell-body {
-		display: flex;
-		flex-direction: row;
-		height: 106px;
-	}
-	.lawInfo {
-		width: 64px;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	.law-ava {
-		width: 64px;
-		height: 64px;
-	}
-	.law-name {
-		height: 20px;
-		color: #333333;
-		font-size: 14px;
-		margin-top: 5px;
-		text-align: center;
-	}
-	.law-time {
-		margin-top: 0px;
-		color: #999999;
-		font-size: 12px;
-		text-align: center;
-	}
-	.lawAble {
-		display: flex;
-		flex: 1;
-		margin-left: 15px;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	.tag-view {
+	.law-list {
+		margin-top: calc(52px + var(--window-top));
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		text-align: center;
-		height: 60px;
+		padding: 0 15px;
+		justify-content: space-between;
+	}
+
+	.list-cell {
+		margin-top: 15px;
+		display: flex;
+		position:relative;
+		flex-direction: column;
+		width: calc((100vw - 45px)/2);
+		height: 210px;
+		background-color: #FFFFFF;
+		border-radius: 6px;
 		overflow: hidden;
 	}
 	
-	.tag {
-		width: 64px;
-		height: 25px;
-		line-height: 25px;
-		border-color:  #ECECEC;
-		border-width: .5px;
-		border-style: solid;
-		margin-right: 2px;
-		margin-bottom: 10px;
-		border-radius: 12.5px;
-		font-size: 12px;
-		text-align: center;
+	.vip {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 50px;
+		height: 50px;
+		z-index: 990;
 	}
 	
-	.rate {
+	.contract-preview {
+		height: 140px;
+		width: 100%;
+		background-color: #13BF6C;
+	}
+	
+	.contract {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+	}
+	
+	.contract-name {
+		color: #333333;
+		font-size: 14px;
+	}
+	
+	.contract-price {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-		align-items: center;
+		align-items: baseline;
+		margin-top: 7px;
+	}
+	
+	.price-tool text:nth-child(1) {
+		color: #999999;
+		font-size: 12px;
+	}
+	
+	.price-tool .price {
+		color: #2F69F8;
+		font-size: 18px;
+	}
+	
+	.contract-price .sales {
+		color: #999999;
+		font-size: 12px;
 	}
 	
 	
-	.contact {
-		display: flex;
-		height: 20px;
-		flex-direction: row;
-		align-items: center;
-	}
 	
-	.contact-icon {
-		width: 16px;
-		height: 16px;
-	}
-	.contact-text {
-		width: 56px;
-		margin-left: 8px;
-		color: #666666;
-		font-size: 14px;
-	}	
 </style>
