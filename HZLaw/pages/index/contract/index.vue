@@ -7,7 +7,7 @@
 		<!-- 文书合同 -->
 		<view class="law-list">
 			<block v-for="(value, index) in contractlist" :key="index">
-				<view class="list-cell" @click="goLawDetail(value)">
+				<view class="list-cell" @click="goLawDetail()">
 					<image class="vip" src="../../../static/home/contract/icon_contract_free@3x.png" mode="" v-if="value.isVip"></image>
 					<image class="contract-preview" src="" mode=""></image>
 					<view class="contract">
@@ -344,6 +344,11 @@
 		methods: {
 			goBack:function() {
 				uni.navigateBack();
+			},
+			goLawDetail:function() {
+				uni.navigateTo({
+					url:'../clericalService/index'
+				});
 			}
 	
 		}

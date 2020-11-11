@@ -66,6 +66,14 @@
 				}
 		},
 		{
+				"path": "pages/index/clericalService/index",
+				"style": {
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "文书服务",
+					"navigationBarBackgroundColor":"#FFFFFF"
+				}
+		},
+		{
 				"path": "pages/index/vipService/index",
 				"style": {
 					"navigationBarTextStyle": "black",
