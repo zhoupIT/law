@@ -5,7 +5,7 @@
 			<image class="set" src="../../../static/mine/icon_set_blue@3x.png" mode=""></image>
 		</view> -->
 		<!-- 个人信息 -->
-		<view class="top">
+		<view class="top" @click="goProfile()">
 			<image class="ava" src="../../../static/home/newslist/article-icon2.png" mode=""></image>
 		    <view class="info">
 				<view class="name">
@@ -49,7 +49,6 @@
 				<image class="arrow" src="../../../static/mine/icon_arrow_right@3x.png" mode=""></image>
 			</view>
 		</view>
-		
 	</view>
 </template>
 
@@ -61,6 +60,11 @@
 			}
 		},
 		methods: {
+			goProfile:function() {
+				uni.navigateTo({
+					url:'../../mine/profile/index'
+				})
+			}
 
 		}
 	}

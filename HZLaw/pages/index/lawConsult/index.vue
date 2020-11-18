@@ -7,7 +7,12 @@
 		</view>
 		<view class="upload-image">
 			<text>相关照片</text>
-			<text>(0/3)</text>
+			<text>({{uploadPaths.length}}/{{uploadDatas.length}})</text>
+		</view>
+		<view class="upload">
+			<view @click="onUploadDidClicked(item,index)" v-for="(item,index) in uploadDatas" :key="index" class="icon" v-bind:class="{placeholder:item.isShowPlus}">
+				<image :src="item.uploadfilePath" mode=""></image>
+			</view>
 		</view>
 		<view class="bottom">
 			<view class="bottom-price">
@@ -30,10 +35,50 @@
 	export default {
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+				uploadDatas:[
+					{
+						'uploadfilePath':'',
+						'isShowPlus':true
+					},
+					{
+						'uploadfilePath':'',
+						'isShowPlus':false
+					},
+					{
+						'uploadfilePath':'',
+						'isShowPlus':false
+					},
+					{
+						'uploadfilePath':'',
+						'isShowPlus':false
+					}
+				],
+				uploadPaths:[]
 			}
 		},
 		methods: {
+			onUploadDidClicked:function(item,i) {
+				var that = this;
+				uni.chooseImage({
+					count: 3, //默认9
+					sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
+					sourceType: ['album'], //从相册选择
+					success: function (res) {
+						item.uploadfilePath = res.tempFilePaths[0];
+						that.uploadPaths = [];
+						that.uploadDatas.forEach((eachitem,index,array)=>{
+							eachitem.isShowPlus = false;
+							if (eachitem.uploadfilePath.length) {
+								that.uploadPaths.push(eachitem.uploadfilePath)
+							}
+							if (index == array.length -1) {
+								var obj = that.uploadDatas[that.uploadPaths.length];
+								obj.isShowPlus = true;
+							}
+                        })
+					}
+				})
+			}
 
 		}
 	}
@@ -82,6 +127,31 @@
 		color: #999999;
 		font-size: 12px;
 	}
+	
+	.upload {
+		margin: 15px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+	}
+	
+	.upload .icon {
+		width: 100px;
+		height: 100px;
+		margin-bottom: 10px;
+	}
+	
+	.placeholder {
+		background-image: url(../../../static/home/consult/icon_upload_photo_small@3x.png);
+		background-size: 100px 100px;
+	}
+	
+	.icon image {
+		width: 100%;
+		height: 100%;
+	}
+	
 	
 	
 	

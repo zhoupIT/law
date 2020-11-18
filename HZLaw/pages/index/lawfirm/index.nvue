@@ -2,7 +2,7 @@
 	<view class="container">		
 		<!-- 律师所背景图 -->
 		<view class="top-bg">
-			<image class="bg-img"  src="../../../static/lawFirm/1.jpeg" mode="widthFix"></image>
+			<image class="bg-img"  src="" mode="widthFix"></image>
 		</view>		
 		<!-- 律师所描述 -->
 		<view class="lawFirm-desc">

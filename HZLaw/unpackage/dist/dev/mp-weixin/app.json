@@ -1,8 +1,14 @@
 {
   "pages": [
+    "pages/login/index",
     "pages/tabBar/index/index",
+    "pages/tabBar/message/index",
     "pages/tabBar/law/index",
     "pages/tabBar/mine/index",
+    "pages/index/lawConsult/index",
+    "pages/index/contract/index",
+    "pages/index/clericalService/index",
+    "pages/index/vipService/index",
     "pages/index/lawfirm/index"
   ],
   "subPackages": [],
@@ -31,7 +37,7 @@
         "text": "律师"
       },
       {
-        "pagePath": "",
+        "pagePath": "pages/tabBar/message/index",
         "iconPath": "static/tabBar/icon_tab_message_gray@3x.png",
         "selectedIconPath": "static/tabBar/icon_tab_message_color@3x.png",
         "text": "消息"
@@ -44,5 +50,6 @@
       }
     ]
   },
-  "usingComponents": {}
+  "usingComponents": {},
+  "sitemapLocation": "sitemap9.json"
 }

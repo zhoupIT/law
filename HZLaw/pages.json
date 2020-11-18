@@ -11,11 +11,20 @@
 		{
 			"path": "pages/tabBar/index/index",
 			"style": {
+				"navigationStyle":"custom",
 				"app-plus": {  
 					"titleNView": false // 禁用原生导航栏，APP和H5可用
 				} 
 			}
 	    },
+		{
+			"path": "pages/tabBar/message/index",
+			"style": {
+				"app-plus": {  
+					"titleNView": false // 禁用原生导航栏，APP和H5可用
+				} 
+			}
+		},
 		{
 				"path": "pages/tabBar/law/index",
 				"style": {
@@ -74,6 +83,14 @@
 				}
 		},
 		{
+				"path": "pages/mine/profile/index",
+				"style": {
+					"navigationBarTextStyle": "black",
+					"navigationBarTitleText": "个人资料",
+					"navigationBarBackgroundColor":"#FFFFFF"
+				}
+		},
+		{
 				"path": "pages/index/vipService/index",
 				"style": {
 					"navigationBarTextStyle": "black",
@@ -87,7 +104,7 @@
 				"path": "pages/index/lawfirm/index",
 				"style": {
 					"navigationBarTextStyle": "black",
-					"navigationBarBackgroundColor":"rgba(0,0,0,0)",
+					"navigationBarBackgroundColor":"#FFFFFF",
 					"transparentTitle":"always"
 				}
 		}
@@ -114,7 +131,7 @@
 				"selectedIconPath": "static/tabBar/icon_tab_lawyer_color@3x.png",
 				"text": "律师"
 			}, {
-				"pagePath": "",
+				"pagePath": "pages/tabBar/message/index",
 				"iconPath": "static/tabBar/icon_tab_message_gray@3x.png",
 				"selectedIconPath": "static/tabBar/icon_tab_message_color@3x.png",
 				"text": "消息"

@@ -64,7 +64,7 @@
 		font-size: 14px;
 	}
 	.login {
-		padding: 84px 40px 0 40px;
+		padding: 14px 40px 0 40px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

@@ -1,0 +1,113 @@
+
+.container {
+	font-size: 12px;
+	position: relative;
+}
+.search {
+	position: fixed;
+	top: 0px;
+	left: 0;
+	right: 0;
+	height: 52px;
+	/* 下拉选择框的z-index是997 */
+	z-index: 996;
+	background-color: #FFFFFF;
+}
+.dropdown {
+	top: calc(52px + 0px);
+}
+.law-list {
+	margin-top: calc(52px + 0px);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	        flex-wrap: wrap;
+	padding: 0 15px;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+.list-cell {
+	margin-top: 15px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	position:relative;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	width: calc((100vw - 45px)/2);
+	height: 210px;
+	background-color: #FFFFFF;
+	-webkit-border-radius: 6px;
+	        border-radius: 6px;
+	overflow: hidden;
+}
+.vip {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 50px;
+	z-index: 990;
+}
+.contract-preview {
+	height: 140px;
+	width: 100%;
+	background-color: #13BF6C;
+}
+.contract {
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	padding: 10px;
+}
+.contract-name {
+	color: #333333;
+	font-size: 14px;
+}
+.contract-price {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-box-align: baseline;
+	-webkit-align-items: baseline;
+	        align-items: baseline;
+	margin-top: 7px;
+}
+.price-tool text:nth-child(1) {
+	color: #999999;
+	font-size: 12px;
+}
+.price-tool .price {
+	color: #2F69F8;
+	font-size: 18px;
+}
+.contract-price .sales {
+	color: #999999;
+	font-size: 12px;
+}
+
+
+
+
