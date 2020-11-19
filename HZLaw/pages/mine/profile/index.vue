@@ -81,17 +81,16 @@
 				 this.date = e.target.value;
 			 },
 			 getDate(type) {
-			             const date = new Date();
-			             let year = date.getFullYear();
-			             let month = date.getMonth() + 1;
-			             let day = date.getDate();
-			 
-			             if (type === 'start') {
-			                 year = 1920;
-							 month = 1;
-							 day = 1;
-			             } 
-			             return `${year}-${month}-${day}`;
+			        const date = new Date();
+			        let year = date.getFullYear();
+			        let month = date.getMonth();
+			        let day = date.getDate();
+			        if (type === 'start') {
+			            year = 2000;
+						month = 1;
+						day = 1;
+			        } 
+			        return `${year}-${month}-${day}`;
 			 }
 
 		}

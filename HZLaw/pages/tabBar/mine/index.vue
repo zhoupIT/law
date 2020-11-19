@@ -5,7 +5,7 @@
 			<image class="set" src="../../../static/mine/icon_set_blue@3x.png" mode=""></image>
 		</view> -->
 		<!-- 个人信息 -->
-		<view class="top" @click="goProfile()">
+		<view class="top" @click="goPageWithUrl('../../mine/profile/index')">
 			<image class="ava" src="../../../static/home/newslist/article-icon2.png" mode=""></image>
 		    <view class="info">
 				<view class="name">
@@ -28,22 +28,22 @@
 			    <text>我的钱包</text>
 				<image class="arrow" src="../../../static/mine/icon_arrow_right@3x.png" mode=""></image>
 			</view>
-			<view class="cell">
+			<view class="cell" @click="goPageWithUrl('../../mine/myFile/index')">
 				<image src="../../../static/mine/icon_mine_file@3x.png" mode=""></image>
 			    <text>我的文件</text>
 				<image class="arrow" src="../../../static/mine/icon_arrow_right@3x.png" mode=""></image>
 			</view>
-			<view class="cell">
+			<view class="cell" @click="goPageWithUrl('../../mine/myOrder/index')">
 				<image src="../../../static/mine/icon_mine_order@3x.png" mode=""></image>
 			    <text>我的订单</text>
 				<image class="arrow" src="../../../static/mine/icon_arrow_right@3x.png" mode=""></image>
 			</view>
-			<view class="cell">
+			<view class="cell" @click="goPageWithUrl('../../mine/aboutUs/index')">
 				<image src="../../../static/mine/icon_mine_about@3x.png" mode=""></image>
 			    <text>关于我们</text>
 				<image class="arrow" src="../../../static/mine/icon_arrow_right@3x.png" mode=""></image>
 			</view>
-			<view class="cell">
+			<view class="cell" @click="hotLine()">
 				<image src="../../../static/mine/icon_mine_tel@3x.png" mode=""></image>
 			    <text>求助热线</text>
 				<image class="arrow" src="../../../static/mine/icon_arrow_right@3x.png" mode=""></image>
@@ -53,6 +53,7 @@
 </template>
 
 <script>
+	const commonJS = require('../../../util/methods/common.js')
 	export default {
 		data() {
 			return {
@@ -60,10 +61,22 @@
 			}
 		},
 		methods: {
-			goProfile:function() {
+			// 跳转页面
+			goPageWithUrl:function(url) {
 				uni.navigateTo({
-					url:'../../mine/profile/index'
+					url:url
 				})
+			},
+			goSetting:function() {
+				uni.navigateTo({
+					url:'../../mine/setting/index'
+				})
+			},
+			// 求助热线
+			hotLine:function() {
+				uni.makePhoneCall({
+					phoneNumber: '114'
+				});
 			}
 
 		}
