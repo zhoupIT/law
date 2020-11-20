@@ -1,0 +1,74 @@
+
+.container {
+	font-size: 14px;
+	padding-top: 10px;
+}
+.list {
+	padding-left: 15px;
+	background-color: #FFFFFF;
+}
+.cell {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+
+	border-bottom: .5px #ECECEC solid;
+	background-color: #FFFFFF;
+}
+.cell-type-ava {
+	height: 86px;
+}
+.cell-type-common {
+	height: 52px;
+}
+.cell .cell-title {
+	color: #333333;
+	font-size: 16px;
+	margin-left: 10px;
+}
+.cell .cell-right {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+	margin-right: 15px;
+}
+.cell-right .cell-ava {
+	width: 56px;
+	height: 56px;
+	-webkit-border-radius: 28px;
+	        border-radius: 28px;
+}
+.cell-right .cell-val-common {
+	color: #CCCCCC;
+	font-size: 14px;
+}
+.cell-right .cell-val {
+	color: #999999;
+	font-size: 14px;
+}
+.cell-right .arrow {
+	width: 16px;
+	height: 16px;
+	margin-left: 10px;
+}
+

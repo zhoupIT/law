@@ -1,0 +1,99 @@
+
+.container {
+	font-size: 14px;
+}
+.list {
+	padding: 10px 15px;
+}
+.cell {
+	width: 100%;
+	height: 130px;
+	-webkit-border-radius: 6px;
+	        border-radius: 6px;
+	background-color: #FFFFFF;
+	margin-bottom: 10px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	        align-items: center;
+}
+.cell .ava {
+	width: 80px;
+	height: 100px;
+	margin-left: 15px;
+	background-color: #13BF6C;
+	-webkit-border-radius: 6px;
+	        border-radius: 6px;
+}
+.cell .desc {
+	margin: 15px;
+	-webkit-box-flex: 1;
+	-webkit-flex: 1;
+	        flex: 1;
+	height: 100px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+}
+.desc .head {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	        flex-direction: row;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	        align-items: flex-start;
+}
+.head text:nth-child(1) {
+	color: #333333;
+	font-size: 14px;
+}
+.head text:nth-child(2) {
+	color: #999999;
+	font-size: 12px;
+}
+.time {
+	margin-top: 10px;
+	color: #999999;
+	font-size: 12px;
+}
+.check {
+	width: 72px;
+	height: 24px;
+	line-height: 24px;
+	background-image: -webkit-linear-gradient(178deg, #2FA2F8 0%, #2F69F8 93%);
+	background-image: linear-gradient(-88deg, #2FA2F8 0%, #2F69F8 93%);
+	-webkit-border-radius: 12px;
+	        border-radius: 12px;
+	color: #FFFFFF;
+	font-size: 12px;
+	text-align: center;
+	-webkit-align-self:flex-end;
+	        align-self:flex-end;
+}
+.isExpire {
+	color: #FF5A5A;
+}
+.isExpireBtn {
+	background: #CCCCCC;
+}
+

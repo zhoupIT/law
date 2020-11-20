@@ -1,4 +1,15 @@
 {
   "navigationBarTextStyle": "black",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "",
+        "color": "#234df6",
+        "fontSrc": "/static/font/iconfont.ttf",
+        "fontSize": "24px",
+        "float": "left"
+      }
+    ]
+  },
   "usingComponents": {}
 }

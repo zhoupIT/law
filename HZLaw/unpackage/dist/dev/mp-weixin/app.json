@@ -4,14 +4,30 @@
     "pages/tabBar/index/index",
     "pages/tabBar/message/index",
     "pages/tabBar/law/index",
-    "pages/tabBar/mine/index",
-    "pages/index/lawConsult/index",
-    "pages/index/contract/index",
-    "pages/index/clericalService/index",
-    "pages/index/vipService/index",
-    "pages/index/lawfirm/index"
+    "pages/tabBar/mine/index"
   ],
-  "subPackages": [],
+  "subPackages": [
+    {
+      "root": "pages/mine",
+      "pages": [
+        "profile/index",
+        "myFile/index",
+        "myOrder/index",
+        "aboutUs/index",
+        "setting/index"
+      ]
+    },
+    {
+      "root": "pages/index",
+      "pages": [
+        "lawConsult/index",
+        "contract/index",
+        "clericalService/index",
+        "vipService/index",
+        "lawfirm/index"
+      ]
+    }
+  ],
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "",
@@ -51,5 +67,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap9.json"
+  "sitemapLocation": "sitemap29.json"
 }

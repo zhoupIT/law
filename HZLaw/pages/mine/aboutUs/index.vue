@@ -27,16 +27,15 @@
 </script>
 
 <style>
-	* {
-		text-align: center;
-	}
 	
 	page {
 		background-color: #FFFFFF;
 	}
 	
 	.container {
-		
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		font-size: 14px;
 		position: relative;
 	}
@@ -52,7 +51,7 @@
 	
 	.name {
 		color: #2C405A;
-		font-size: 20px;
+		font-size: 18px;
 		margin-top: 10px;
 	}
 	
@@ -63,6 +62,7 @@
 		right: 0;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 	}
 	
 
