@@ -29,10 +29,11 @@
     }
   ],
   "window": {
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "navigationBarTitleText": "",
     "navigationBarBackgroundColor": "#FFFFFF",
-    "backgroundColor": "#fcfcfc"
+    "backgroundColor": "#fcfcfc",
+    "navigationStyle": "custom"
   },
   "tabBar": {
     "color": "#CCCCCC",
@@ -66,6 +67,8 @@
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap29.json"
+  "usingComponents": {
+    "nav-bar": "/components/zhouWei-navBar/index"
+  },
+  "sitemapLocation": "sitemap27.json"
 }

@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar title="设置"></nav-bar>
 		<!-- 列表 -->
 		<view class="list">
 			<view class="cell cell-type-common">

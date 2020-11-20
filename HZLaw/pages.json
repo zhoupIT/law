@@ -1,62 +1,22 @@
 {
 	"pages": [
 		{
-			"path": "pages/login/index",
-			"style": {
-				"app-plus": {  
-					"titleNView": false // 禁用原生导航栏，APP和H5可用
-				} 
-			}
+			"path": "pages/login/index"
 		},
 		{
 			"path": "pages/tabBar/index/index",
 			"style": {
-				"navigationStyle":"custom",
-				"app-plus": {  
-					"titleNView": false // 禁用原生导航栏，APP和H5可用
-				} 
+				"navigationBarTextStyle": "white"
 			}
 	    },
 		{
-			"path": "pages/tabBar/message/index",
-			"style": {
-				"app-plus": {  
-					"titleNView": false // 禁用原生导航栏，APP和H5可用
-				} 
-			}
+			"path": "pages/tabBar/message/index"
 		},
 		{
-				"path": "pages/tabBar/law/index",
-				"style": {
-					"navigationBarTextStyle": "black",
-					"navigationBarBackgroundColor":"#FFFFFF",
-					"h5":{
-						"titleNView":{
-							"searchInput":{
-								"placeholder":"请输入",
-								"borderRadius":"18px",
-								"backgroundColor":"#f4f5f7"
-							}
-						}
-					}
-				}
+			"path": "pages/tabBar/law/index"
 		},
 		{
-			"path": "pages/tabBar/mine/index",
-			"style": {
-				"navigationBarTextStyle":"black",
-				"mp-weixin": {
-					"titleNView": {
-						"buttons": [{
-							"text": "\ue63f",
-							"color":"#234df6",
-							"fontSrc": "/static/font/iconfont.ttf",
-							"fontSize": "24px",
-							"float": "left"
-						}]
-					}
-				}
-			}
+			"path": "pages/tabBar/mine/index"
 		}
 	],
 	"subPackages":[
@@ -64,44 +24,19 @@
 			"root": "pages/mine",
 			"pages":[
 				{
-						"path": "profile/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "个人资料",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "profile/index"
 				},
 				{
-						"path": "myFile/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "我的文件",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "myFile/index"
 				},
 				{
-						"path": "myOrder/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "我的订单",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "myOrder/index"
 				},
 				{
-						"path": "aboutUs/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "关于我们",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "aboutUs/index"
 				},
 				{
-						"path": "setting/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "系统设置",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "setting/index"
 				}
 			]
 		},
@@ -109,55 +44,32 @@
 			"root":"pages/index",
 			"pages":[
 				{
-						"path": "lawConsult/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "法律咨询",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "lawConsult/index"
 				},
 				{
-						"path": "contract/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "文书合同",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "contract/index"
 				},
 				{
-						"path": "clericalService/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarTitleText": "文书服务",
-							"navigationBarBackgroundColor":"#FFFFFF"
-						}
+						"path": "clericalService/index"
 				},
 				{
-						"path": "vipService/index",
-						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarBackgroundColor":"#FFFFFF",
-							"app-plus": {
-								"titleNView": false // 禁用原生导航栏，APP和H5可用
-							} 
-						}
+						"path": "vipService/index"
 				},
 				{
 						"path": "lawfirm/index",
 						"style": {
-							"navigationBarTextStyle": "black",
-							"navigationBarBackgroundColor":"#FFFFFF",
-							"transparentTitle":"always"
+							"navigationBarTextStyle": "white"
 						}
 				}
 			]
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "",
 		"navigationBarBackgroundColor": "#FFFFFF",
-		"backgroundColor": "#fcfcfc"
+		"backgroundColor": "#fcfcfc",
+		"navigationStyle": "custom"
 	},
 	"tabBar": {
 		"color": "#CCCCCC",

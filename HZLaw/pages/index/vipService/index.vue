@@ -1,16 +1,14 @@
 <template>
-	
 	<view class="container">
-		<uni-nav-bar @clickLeft="onBackDidClicked()">
-			<block slot="left">
-				<image src="../../../static/icon_back@3x.png" mode="" class="back-arrow"></image>
-			</block>
-			<view class="head">
-				<view v-for="(item,index) in vipList" :key="index" v-bind:class="{checked:index==selIndex}" @click="onVipDidSelected(index,$event)">
-					{{item.name}}
-				</view>
+		<nav-bar title="VIP通道">
+			
+		</nav-bar>
+		
+		<view class="head">
+			<view v-for="(item,index) in vipList" :key="index" v-bind:class="{checked:index==selIndex}" @click="onVipDidSelected(index,$event)">
+				{{item.name}}
 			</view>
-		</uni-nav-bar>
+		</view>
 		<image :src="vipSeled.icon" mode=""></image>
 		<view class="content">
 			<text class="title">套餐内容</text>

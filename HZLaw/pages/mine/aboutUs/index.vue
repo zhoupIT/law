@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar title="关于"></nav-bar>
 		<view class="icon">
 			<image src="../../../static/home/newslist/article-icon.png" mode=""></image>
 		</view>

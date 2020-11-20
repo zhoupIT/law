@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar title="我的订单"></nav-bar>
 		<view class="list">
 			<block v-for="(value, index) in listData" :key="index">
 				<view class="cell">

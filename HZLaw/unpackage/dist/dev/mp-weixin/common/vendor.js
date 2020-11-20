@@ -1935,7 +1935,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 167:
+/***/ 159:
 /*!************************************************************************!*\
   !*** /Users/xinmob/Desktop/横卓/law/HZLaw/components/uni-icons/icons.js ***!
   \************************************************************************/
@@ -8163,33 +8163,6 @@ module.exports = g;
 /***/ (function(module, exports) {
 
 
-
-/***/ }),
-
-/***/ 49:
-/*!*****************************************************************!*\
-  !*** /Users/xinmob/Desktop/横卓/law/HZLaw/util/methods/common.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(uni) {// 求助热线
-function hotLine() {
-  uni.makePhoneCall({
-    phoneNumber: '114' });
-
-}
-// 跳转页面
-function goPageWithUrl(url) {
-  uni.navigateTo({
-    url: url });
-
-}
-
-module.exports = {
-  hotLine: hotLine,
-  goPageWithUrl: goPageWithUrl };
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

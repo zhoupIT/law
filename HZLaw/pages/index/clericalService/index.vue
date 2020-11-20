@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar title=""></nav-bar>
 		<view class="clerical-preview">
 			<image src="" mode=""></image>
 		</view>

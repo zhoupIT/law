@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar title="个人资料"></nav-bar>
 		<!-- 列表 -->
 		<view class="list">
 			<view class="cell cell-type-ava">

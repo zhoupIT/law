@@ -1,9 +1,10 @@
 <template>
 	<view class="container">
-		<!-- 设置 -->
-	<!-- 	<view class="nav">
-			<image class="set" src="../../../static/mine/icon_set_blue@3x.png" mode=""></image>
-		</view> -->
+		<nav-bar backState="2000">
+			<view slot="left">
+				<image class="set" src="../../../static/mine/icon_set_blue@3x.png" @click="goSetting()"></image>
+			</view>
+		</nav-bar>
 		<!-- 个人信息 -->
 		<view class="top" @click="goPageWithUrl('../../mine/profile/index')">
 			<image class="ava" src="../../../static/home/newslist/article-icon2.png" mode=""></image>
@@ -53,8 +54,9 @@
 </template>
 
 <script>
-	const commonJS = require('../../../util/methods/common.js')
+	import navBar from "@/components/zhouWei-navBar";
 	export default {
+		components: {navBar},
 		data() {
 			return {
 				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
@@ -95,20 +97,13 @@
 	.container {
 		font-size: 14px;
 	}
-	.nav {
-		margin-top: 0px;
-		height: 26px;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-	}
-	.nav .set {
-		margin-right: 15px;
+	.set {
 		width: 24px;
 		height: 26px;
+		margin-left: 20px;
 	}
 	.top {
-		margin-top: 3px;
+		margin-top: 20px;
 		display: flex;
 		flex-direction: row;
 		height: 60px;

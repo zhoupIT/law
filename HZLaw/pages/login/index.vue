@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar bgColor="#FFFFFF" backState="2000"></nav-bar>
 		<view class="login">
 			<view class="logo">
 				<image src="../../static/login/logo_login@3x.png" mode=""></image>

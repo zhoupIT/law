@@ -1,12 +1,13 @@
 <template>
 	<view class="container">
-		<!-- 头部和banner -->
-		<view class="top-bg">
-			<text class="title">衡卓法律咨询</text>
-			<view class="location">
+		<nav-bar bgColor="#2F69F8" title="衡卓法律咨询" fontColor="#FFF" backState="2000">
+			<view slot="left" class="location">
 				<text>经开区</text>
 				<image src="../../../static/home/banner/icon_arrow_down@3x.png" mode=""></image>
 			</view>
+		</nav-bar>
+		<!-- 头部和banner -->
+		<view class="top-bg">
 			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" indicator-color="#b3c6fb" indicator-active-color="#2F69F8">
 				<swiper-item>
 					<image src="../../../static/home/banner/banner1@3x.png" mode=""></image>
@@ -169,24 +170,15 @@
 	}
 	.top-bg {
 		position: relative;
-		background-image: linear-gradient(180deg, #2F69F8 0%, #2FA2F8 99%);
-		height: 225px;
+		/* background-image: linear-gradient(180deg, #2F69F8 0%, #2FA2F8 99%); */
+		background-color: #2F69F8;
+		height: 125px;
 		width: 100%;
 		border-radius: 0 0 100% 100%;
 	}
-	.top-bg .title {
-		position: absolute;
-		top: 37px;
-		left: 15px;
-		color: #FFFFFF;
-		font-size: 18px;
-	}
-	
-	.top-bg .location {
-		position: absolute;
-		top: 44px;
-		right: 15px;
-		width: 60px;
+
+	.location {
+		margin-left: 15px;
 	}
 	.location text {
 		color: #FFFFFF;
@@ -200,7 +192,7 @@
 	.top-bg swiper {
 		position: absolute;
 		height: 160px;
-		top: 84px;
+		top: 20px;
 		left: 15px;
 		right: 15px;
 		border-radius: 6px;
@@ -214,7 +206,7 @@
 		flex-direction: row;
 		justify-content: space-around;
 		align-items: center;
-		margin-top: 20px;
+		margin-top: 40px;
 		height: 119px;
 	}
 	.shortcut .fun {

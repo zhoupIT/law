@@ -1,9 +1,10 @@
 <template>
 	<view class="container">
+		<nav-bar title="文书合同"></nav-bar>
 		<!-- 搜索栏 -->
-		<uni-search-bar class="search" @confirm="" @input="" placeholder="请输入合同关键字" radius="16" bgColor="#F6F7F8" />
+		<!-- <uni-search-bar class="search" @confirm="" @input="" placeholder="请输入合同关键字" radius="16" bgColor="#F6F7F8" /> -->
 		<!-- 下拉栏 -->
-		<HMfilterDropdown class="dropdown" :filterData="filterData" @confirm="confirm"></HMfilterDropdown>
+		<!-- <HMfilterDropdown class="dropdown" :filterData="filterData" @confirm="confirm"></HMfilterDropdown> -->
 		<!-- 文书合同 -->
 		<view class="law-list">
 			<block v-for="(value, index) in contractlist" :key="index">

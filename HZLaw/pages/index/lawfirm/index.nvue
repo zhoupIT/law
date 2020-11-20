@@ -1,5 +1,6 @@
 <template>
-	<view class="container">		
+	<view class="container">	
+		<nav-bar type="transparent" fontColor="#FFF"></nav-bar>
 		<!-- 律师所背景图 -->
 		<view class="top-bg">
 			<image class="bg-img"  src="" mode="widthFix"></image>
@@ -69,10 +70,6 @@
 		<view class="law-img">
 			<image class="head-icon" src="../../../static/home/newslist/article-icon.png" mode=""></image>
 		</view>
-		<!-- 返回按钮 -->
-		<view class="back" @click="goBack()">
-			<image class="back-image"  src="../../../static/icon_back_white@3x.png" mode="widthFix"></image>
-		</view>	
 	</view>
 </template>
 

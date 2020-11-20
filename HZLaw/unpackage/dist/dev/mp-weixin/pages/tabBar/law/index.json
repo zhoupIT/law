@@ -1,6 +1,4 @@
 {
-  "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#FFFFFF",
   "usingComponents": {
     "h-mfilter-dropdown": "/components/HM-filterDropdown/HM-filterDropdown"
   }

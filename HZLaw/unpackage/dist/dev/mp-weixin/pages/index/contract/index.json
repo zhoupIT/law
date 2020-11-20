@@ -1,9 +1,5 @@
 {
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "文书合同",
-  "navigationBarBackgroundColor": "#FFFFFF",
   "usingComponents": {
-    "uni-search-bar": "/components/uni-search-bar/uni-search-bar",
     "h-mfilter-dropdown": "/components/HM-filterDropdown/HM-filterDropdown"
   }
 }

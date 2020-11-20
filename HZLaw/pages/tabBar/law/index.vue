@@ -1,7 +1,8 @@
 <template>
-	<view class="container">		
+	<view class="container">
+		<nav-bar title="律师" backState="2000"></nav-bar>
 		<!-- 下拉栏 -->
-		<HMfilterDropdown :filterData="filterData" @confirm="confirm"></HMfilterDropdown>
+		<!-- <HMfilterDropdown :filterData="filterData" @confirm="confirm"></HMfilterDropdown> -->
 		<!-- 律所律师 -->
 		<view class="law-list">
 			<block v-for="(value, index) in lawlist" :key="index">

@@ -1,1 +1,1 @@
-<view class="container"><view class="icon"><image src="../../../static/home/newslist/article-icon.png" mode></image></view><view class="name"><text>法 +</text></view><view class="ver"><text>V 1.0.0</text><text>©无锡衡卓有限公司</text></view></view>
+<view class="container"><nav-bar vue-id="b60231ca-1" title="关于" bind:__l="__l"></nav-bar><view class="icon"><image src="../../../static/home/newslist/article-icon.png" mode></image></view><view class="name"><text>法 +</text></view><view class="ver"><text>V 1.0.0</text><text>©无锡衡卓有限公司</text></view></view>

@@ -1,7 +1,5 @@
 {
-  "navigationBarTextStyle": "black",
-  "navigationBarBackgroundColor": "#FFFFFF",
-  "transparentTitle": "always",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "uni-rate": "/components/uni-rate/uni-rate"
   }

@@ -1,1 +1,1 @@
-<view class="container"><image src mode="widthFix"></image></view>
+<view class="container"><nav-bar vue-id="1c0809d8-1" title="消息" backState="2000" bind:__l="__l"></nav-bar><image src mode="widthFix"></image></view>

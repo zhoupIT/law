@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar title="消息" backState="2000"></nav-bar>
 		<image src="" mode="widthFix"></image>
 	</view>
 </template>

@@ -1,5 +1,6 @@
 <template>
 	<view class="container">
+		<nav-bar title="法律咨询"></nav-bar>
 		<view class="consult-content">
 			<text>*</text>
 			<text>咨询内容</text>
