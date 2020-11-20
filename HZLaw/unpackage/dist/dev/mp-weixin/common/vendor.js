@@ -8125,27 +8125,71 @@ internalMixin(Vue);
 /***/ }),
 
 /***/ 25:
-/*!*******************************************************!*\
-  !*** /Users/xinmob/Desktop/横卓/law/HZLaw/api/index.js ***!
-  \*******************************************************/
+/*!**********************************************************!*\
+  !*** /Users/xinmob/Desktop/横卓/law/HZLaw/api/IndexApi.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.login = exports.getAdList = void 0;
+Object.defineProperty(exports, "__esModule", { value: true });exports.login = exports.getOrgInfo = exports.getOrgNewsList = exports.getContractList = exports.getAdList = exports.getTariff = void 0;
 
 
 var _service = __webpack_require__(/*! @/service/service.js */ 26); /**
                                                  * 首页相关api
                                                  */ /**
-                                                     * 查询banner列表
+                                                     * 查询VIP套餐
                                                      * @param {Object} params - 查询参数  
                                                      */
+var getTariff = function getTariff() {
+  return _service.http.post('/app/tariff/get');
+};
+
+/**
+    * 查询banner列表
+    * @param {Object} params - 查询参数  
+    */exports.getTariff = getTariff;
 var getAdList = function getAdList(params) {
   return _service.http.post('/app/market/advert/list',
   params);
 
-};exports.getAdList = getAdList;
+};
+
+/**
+    * 查询文书合同列表
+    * {"limit":"10","contractType":"1","name":"合同","industry":"1","page":"1"}
+    * @param {Object} params - 查询参数  
+    */exports.getAdList = getAdList;
+var getContractList = function getContractList(params) {
+  return _service.http.post('/app/contract/list',
+  params);
+
+};
+
+/**
+    * 查询法律热文列表
+    * “title”：“”，
+       “type”：“”，
+       “limit”： ，
+       “page”：,
+    * @param {Object} params - 查询参数  
+    */exports.getContractList = getContractList;
+var getOrgNewsList = function getOrgNewsList(params) {
+  return _service.http.post('/app/org/news',
+  params);
+
+};
+
+/**
+    * 查询律所信息列表
+    * 传输 orgId 获取该律所下所有律师    ，传输 topStatus（0-不是王牌律所 1- 是王牌律所） 获取王牌律所信息
+    * @param {Object} params - 查询参数  
+    */exports.getOrgNewsList = getOrgNewsList;
+var getOrgInfo = function getOrgInfo(params) {
+  return _service.http.post('/app/org/info',
+  params);
+
+};exports.getOrgInfo = getOrgInfo;
 
 var login = function login(params) {
   return _service.http.get('/app/market/advert/list',

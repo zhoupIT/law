@@ -98,16 +98,30 @@
 </template>
 
 <script>
-	import {getAdList} from '../../../api/index.js'
+	import { getAdList,getOrgInfo,getOrgNewsList } from '../../../api/IndexApi.js'
 	export default {
 		onLoad() {
+			
 			getAdList({'type':1}).then(res => {
-					console.log('获取banner列表 get success----');
-					console.log(res);
-				}).catch(err => {
-					console.log('获取banner列表 get fail----');
-					console.log(err);
-				});
+				console.log('获取banner列表'+JSON.stringify(res.data));
+			}).catch(err => {
+				console.log('获取banner列表'+JSON.stringify(err));
+			});
+			
+			getOrgInfo({"topStatus":1}).then(res => {
+				console.log('获取王牌律所列表'+JSON.stringify(res.data));
+			}).catch(err => {
+				console.log('获取王牌律所列表'+JSON.stringify(err));
+			});
+			
+			getOrgNewsList({}).then(res => {
+				console.log('获取资讯列表'+JSON.stringify(res.data));
+			}).catch(err => {
+				console.log('获取资讯列表'+JSON.stringify(err));
+			});
+
+			
+			
 		},
 		data() {
 			return {

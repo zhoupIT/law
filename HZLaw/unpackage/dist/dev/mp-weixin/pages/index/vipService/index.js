@@ -130,7 +130,35 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _IndexApi = __webpack_require__(/*! ../../../api/IndexApi.js */ 25); //
 //
 //
 //
@@ -157,27 +185,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
-{
-  data: function data() {
-    return {
-      vipList: [
-      {
-        'name': '套餐一',
-        'icon': '../../../static/home/vip/img_vip_1@3x.png',
-        'content': '会员有效期内免费提供法务咨询',
-        'time': '开通会员后24小时',
-        'price': '98.0' },
-      {
-        'name': '套餐二',
-        'icon': '../../../static/home/vip/img_vip_2@3x.png',
-        'content': '会员有效期内免费提供:\n1.法务咨询、合同审核、法律讲堂、合同下载服务\n2.对企业风险进行在线评估服务',
-        'time': '开通会员后3个月',
-        'price': '2980.0' },
-      {
-        'name': '套餐三',
-        'icon': '../../../static/home/vip/img_vip_3@3x.png',
-        'content': '会员有效期内免费提供:\n1.法务咨询、合同审核、法律讲堂、合同下载、合同定制、代写文书服务\n2.对企业风险进行在线评估服务\n3.案件委托、出具律师函',
+var _default = { onLoad: function onLoad() {(0, _IndexApi.getTariff)({}).then(function (res) {console.log('获取vip套餐' + JSON.stringify(res.data));}).catch(function (err) {console.log('获取vip套餐' + JSON.stringify(err));});}, data: function data() {return { vipList: [{ 'name': '套餐一', 'icon': '../../../static/home/vip/img_vip_1@3x.png', 'content': '会员有效期内免费提供法务咨询', 'time': '开通会员后24小时', 'price': '98.0' }, { 'name': '套餐二', 'icon': '../../../static/home/vip/img_vip_2@3x.png', 'content': '会员有效期内免费提供:\n1.法务咨询、合同审核、法律讲堂、合同下载服务\n2.对企业风险进行在线评估服务', 'time': '开通会员后3个月', 'price': '2980.0' }, { 'name': '套餐三', 'icon': '../../../static/home/vip/img_vip_3@3x.png', 'content': '会员有效期内免费提供:\n1.法务咨询、合同审核、法律讲堂、合同下载、合同定制、代写文书服务\n2.对企业风险进行在线评估服务\n3.案件委托、出具律师函',
         'time': '开通会员后3个月',
         'price': '9980.0' }],
 

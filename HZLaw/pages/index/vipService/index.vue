@@ -26,7 +26,15 @@
 </template>
 
 <script>
+	import { getTariff } from '../../../api/IndexApi.js'
 	export default {
+		onLoad() {
+			getTariff({}).then(res => {
+				console.log('获取vip套餐'+JSON.stringify(res.data));
+			}).catch(err => {
+				console.log('获取vip套餐'+JSON.stringify(err));
+			});
+		},
 		data() {
 			return {
 				vipList: [
