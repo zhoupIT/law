@@ -14,7 +14,7 @@ _vue.default.config.productionTip = false;
 
 _App.default.mpType = 'app';
 //注册全局组件
-var zhouWeiNavBar = function zhouWeiNavBar() {__webpack_require__.e(/*! require.ensure | components/zhouWei-navBar/index */ "components/zhouWei-navBar/index").then((function () {return resolve(__webpack_require__(/*! @/components/zhouWei-navBar */ 133));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
+var zhouWeiNavBar = function zhouWeiNavBar() {__webpack_require__.e(/*! require.ensure | components/zhouWei-navBar/index */ "components/zhouWei-navBar/index").then((function () {return resolve(__webpack_require__(/*! @/components/zhouWei-navBar */ 151));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
 _vue.default.component("nav-bar", zhouWeiNavBar);
 
 var app = new _vue.default(_objectSpread({},
