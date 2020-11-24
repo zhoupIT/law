@@ -10,14 +10,20 @@
 			<image class="ava" src="../../../static/home/newslist/article-icon2.png" mode=""></image>
 		    <view class="info">
 				<view class="name">
-					<text class="sigle-row">周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏周鹏</text>
-					<image src="../../../static/mine/icon_id_vip_1@3x.png" mode=""></image>
+					<text class="sigle-row">{{user.nickname}}</text>
+					<image v-show="user.level == 1" src="../../../static/mine/icon_id_vip_1@3x.png" mode=""></image>
+					<image v-show="user.level == 2" src="../../../static/mine/icon_id_vip_2@3x.png" mode=""></image>
+					<image v-show="user.level == 3" src="../../../static/mine/icon_id_vip_3@3x.png" mode=""></image>
+					<image v-show="user.level<0 || user.level>3" src="" mode=""></image>
 				</view>
-				<text class="vip-time sigle-row">VIP到期时间：2021-01-30</text>
+				<text class="vip-time sigle-row" v-if="user.level == 1">VIP到期时间：{{user.ipersonEndDate}}</text>
+				<text class="vip-time sigle-row" v-else-if="user.level == 2">VIP到期时间：{{user.iperson2EndDate}}</text>
+				<text class="vip-time sigle-row" v-else-if="user.level == 3">VIP到期时间：{{user.iperson3EndDate}}</text>
+				<text class="vip-time sigle-row" v-else></text>
 			</view>
 		</view>
 		<!-- 开通VIP -->
-		<view class="vip">
+		<view class="vip" v-if="user.level <= 0 || user.level >3" @click="openVip()">
 			<image src="../../../static/mine/icon_vip_crown@3x.png" mode=""></image>
 			<text>开通VIP，即可享受会员权益！</text>
 			<view class="activate">立即开通</view>
@@ -54,12 +60,15 @@
 </template>
 
 <script>
-	import navBar from "@/components/zhouWei-navBar";
 	export default {
-		components: {navBar},
+		onLoad() {
+		    let userStr = this.getUser();
+			this.user = JSON.parse(userStr);
+		},
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
+				href: 'https://uniapp.dcloud.io/component/README?id=uniui',
+				user:null
 			}
 		},
 		methods: {
@@ -79,6 +88,12 @@
 				uni.makePhoneCall({
 					phoneNumber: '114'
 				});
+			},
+			// 开通VIP
+			openVip:function() {
+				uni.navigateTo({
+					url:'../../index/vipService/index'
+				})
 			}
 
 		}

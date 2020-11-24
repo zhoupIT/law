@@ -8,6 +8,14 @@ App.mpType = 'app'
 import zhouWeiNavBar from "@/components/zhouWei-navBar";
 Vue.component("nav-bar", zhouWeiNavBar);
 
+Vue.prototype.getUser = function() {
+	const user = uni.getStorageSync('userInfo');
+	if (!user) {
+		return null;
+	}
+	return user;
+};
+
 const app = new Vue({
 	...App
 })

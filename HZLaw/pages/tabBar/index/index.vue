@@ -49,14 +49,14 @@
 		<scroll-view scroll-x="true" scroll-y="false" class="lawFirm" show-scrollbar="false">
 			<block v-for="(value, index) in lawFirmListData" :key="index">
 				<view class="lawFirm-card" @click="goLawFirmDetail(value)">
-					<image :src="value.icon" mode="" class="lawFirm-img"></image>
+					<image :src="getPicUrl(value.logo)" mode="" class="lawFirm-img"></image>
 					<view class="lawFirm-detail">
 						<text class="lawFirm-name">{{value.name}}</text>
 						<view class="lawFirm-loc">
 							<image src="../../../static/home/newslist/icon_address@3x.png" mode=""></image>
-							<text>{{value.loc}}</text>
+							<text>{{value.province}}{{value.city}}{{value.area}}{{value.address}}</text>
 						</view>
-						<text class="lawFirm-desc">{{value.desc}}</text>
+						<text class="lawFirm-desc">{{value.detail}}</text>
 						<!-- <view class="lawFirm-desc">{{value.desc}}</view> -->
 					</view>
 				</view>
@@ -74,19 +74,19 @@
 					<view class="cell-type">
 						<image src="../../../static/home/newslist/icon_article_hot@3x.png" mode="" v-if="value.type == '法律热文'"></image>
 						<image src="../../../static/home/newslist/icon_article_classic@3x.png" mode="" v-else></image>
-						<text>{{value.type}}</text>
+						<text>法律热文</text>
 					</view>
 					<view class="cell-body">
-						<image :src="value.icon" mode="" class="article-img"></image>
+						<image :src="getPicUrl(value.iconUrl)" mode="" class="article-img"></image>
 						<view class="article">
 							<text class="article-desc">{{value.title}}</text>
 							<view class="article-bottom">
-								<text class="time">{{value.time}}</text>
+								<text class="time">{{value.createTime}}</text>
 								<view class="like">
 									<image src="../../../static/home/newslist/icon_pageview_small_gray@3x.png" mode=""></image>
-									<text>{{value.view}}</text>
+									<text>{{value.clickCount}}</text>
 									<image src="../../../static/home/newslist/icon_like_small_gray@3x.png" mode=""></image>
-									<text>{{value.like}}</text>
+									<text>{{value.likeCount}}</text>
 								</view>
 							</view>
 						</view>
@@ -98,75 +98,48 @@
 </template>
 
 <script>
-	import { getAdList,getOrgInfo,getOrgNewsList } from '../../../api/IndexApi.js'
+	import {
+		baseUrl
+	} from '@/service/service.js'
+	import {
+		getAdList,
+		getOrgInfo,
+		getOrgNewsList
+	} from '../../../api/IndexApi.js'
 	export default {
 		onLoad() {
-			
-			getAdList({'type':1}).then(res => {
-				console.log('获取banner列表'+JSON.stringify(res.data));
-			}).catch(err => {
-				console.log('获取banner列表'+JSON.stringify(err));
-			});
-			
-			getOrgInfo({"topStatus":1}).then(res => {
-				console.log('获取王牌律所列表'+JSON.stringify(res.data));
-			}).catch(err => {
-				console.log('获取王牌律所列表'+JSON.stringify(err));
-			});
-			
-			getOrgNewsList({}).then(res => {
-				console.log('获取资讯列表'+JSON.stringify(res.data));
-			}).catch(err => {
-				console.log('获取资讯列表'+JSON.stringify(err));
+
+			getAdList({
+				'type': 1
+			}).then(res => {
+
 			});
 
-			
-			
+			getOrgInfo({
+				"topStatus": 1
+			}).then(res => {
+				if (res.code == 0) {
+					this.lawFirmListData = res.data;
+				}
+			});
+
+			getOrgNewsList({}).then(res => {
+				if (res.code == 0) {
+					this.newslistData = res.data;
+				}
+			});
 		},
 		data() {
 			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui',
-				newslistData: [{
-						type: '法律热文',
-						icon: '../../../static/home/newslist/article-icon.png',
-						title: '股权转让怎么办理？股权转让又如何缴税？',
-						time: '2020-10-19',
-						view: 2130,
-						like: 95
-					},
-					{
-						type: '经典案例',
-						icon: '../../../static/home/newslist/article-icon2.png',
-						title: '成功代理房产合同违约案获得索赔',
-						time: '2020-10-19',
-						view: 2130,
-						like: 95
-					},
-					{
-						type: '法律热文',
-						icon: '../../../static/home/newslist/article-icon.png',
-						title: '2020套路贷知识大全',
-						time: '2020-10-11',
-						view: 9080,
-						like: 10324
-					}
-				],
-				lawFirmListData: [{
-						name: '江苏开炫律师事务所',
-						icon: '../../../static/home/newslist/article-icon.png',
-						desc: '无锡地区最大的律师事务所之一，业务领域涵盖诉讼仲裁、外商投资、劳动.还有干活什么的',
-						loc: '江苏无锡'
-					},
-					{
-						name: '盐城小周律师事务所',
-						icon: '../../../static/home/newslist/article-icon.png',
-						desc: '盐城地区普通的律师事务所之一，业务领域涵盖诉讼仲裁、外商投资、劳动',
-						loc: '江苏盐城'
-					},
-				]
+				newslistData: [],
+				lawFirmListData: []
 			}
 		},
 		methods: {
+			getPicUrl: function(picUrl) {
+				console.log(baseUrl + '/app/common/download/' + picUrl)
+				return baseUrl + '/app/common/download/' + picUrl;
+			},
 			goLawFirmDetail: function(val) {
 				uni.navigateTo({
 					url: '../../index/lawfirm/index'
@@ -182,6 +155,21 @@
 					url: ''
 				});
 			},
+			getArticleIconWithType: function(type) {
+				var icon;
+				switch (type) {
+					case 149:
+						icon = '../../../static/home/newslist/article-icon.png'
+						break;
+					case 150:
+						icon = '../../../static/home/newslist/article-icon2.png'
+						break;
+					case 151:
+						icon = '../../../static/home/newslist/article-icon2.png'
+						break;
+				}
+				return icon;
+			}
 
 		}
 	}

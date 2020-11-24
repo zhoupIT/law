@@ -1,15 +1,8 @@
 /**
  * 首页相关api
  */
-import {http} from '@/service/service.js'
+import {http,baseUrl} from '@/service/service.js'
 
-/**
- * 查询VIP套餐
- * @param {Object} params - 查询参数  
- */
-export const getTariff = () => {
-	return http.post('/app/tariff/get')
-}
 
 /**
  * 查询banner列表
@@ -57,8 +50,27 @@ export const getOrgInfo = (params) => {
 	)
 }
 
+/// 验证码
+export const getSmsCode = (phone) => {
+	return http.get('/app/smsCode/'+phone)
+}
+
+/// 登录
 export const login = (params) => {
-	return http.get('/app/market/advert/list', 
+	return http.post('/app/codeLogin', 
 		params
 	)
+}
+
+/// 获取个人信息
+export const getUserInfo = () => {
+	return http.get('/app/user/info')
+}
+
+/**
+ * 查询VIP套餐
+ * @param {Object} params - 查询参数  
+ */
+export const getTariff = (params) => {
+	return http.post('/app/tariff/get',params)
 }

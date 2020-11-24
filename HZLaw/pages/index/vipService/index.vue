@@ -6,15 +6,15 @@
 		
 		<view class="head">
 			<view v-for="(item,index) in vipList" :key="index" v-bind:class="{checked:index==selIndex}" @click="onVipDidSelected(index,$event)">
-				{{item.name}}
+				套餐{{item.level}}
 			</view>
 		</view>
-		<image :src="vipSeled.icon" mode=""></image>
+		<image :src="getPicUrl(vipSeled.pic)" mode=""></image>
 		<view class="content">
 			<text class="title">套餐内容</text>
-			<text class="value">{{vipSeled.content}}</text>
+			<text class="value">{{vipSeled.discription}}</text>
 			<text class="title">有效期限</text>
-			<text class="value">{{vipSeled.time}}</text>
+			<text class="value">{{vipSeled.expires}}</text>
 			<text class="title">套餐价格</text>
 			<view class="price">
 				<text>￥</text>
@@ -26,48 +26,27 @@
 </template>
 
 <script>
-	import { getTariff } from '../../../api/IndexApi.js'
+	import { getTariff,getPicUrl } from '../../../api/IndexApi.js'
+	import { baseUrl } from '@/service/service.js'
 	export default {
 		onLoad() {
 			getTariff({}).then(res => {
-				console.log('获取vip套餐'+JSON.stringify(res.data));
-			}).catch(err => {
-				console.log('获取vip套餐'+JSON.stringify(err));
+				this.vipList = res.data;
+				this.vipSeled = this.vipList[0];
 			});
 		},
 		data() {
 			return {
-				vipList: [
-					{
-						'name':'套餐一',
-						'icon':'../../../static/home/vip/img_vip_1@3x.png',
-						'content':'会员有效期内免费提供法务咨询',
-						'time':'开通会员后24小时',
-						'price':'98.0'
-					},{
-						'name':'套餐二',
-						'icon':'../../../static/home/vip/img_vip_2@3x.png',
-						'content':'会员有效期内免费提供:\n1.法务咨询、合同审核、法律讲堂、合同下载服务\n2.对企业风险进行在线评估服务',
-						'time':'开通会员后3个月',
-						'price':'2980.0'
-					},{
-						'name':'套餐三',
-						'icon':'../../../static/home/vip/img_vip_3@3x.png',
-						'content':'会员有效期内免费提供:\n1.法务咨询、合同审核、法律讲堂、合同下载、合同定制、代写文书服务\n2.对企业风险进行在线评估服务\n3.案件委托、出具律师函',
-						'time':'开通会员后3个月',
-						'price':'9980.0'
-					}
-				],
-				vipSeled:{
-					    'icon':'../../../static/home/vip/img_vip_1@3x.png',
-						'content':'会员有效期内免费提供法务咨询',
-						'time':'开通会员后24小时',
-						'price':'98.0'
-				},
+				vipList: [],
+				vipSeled:{},
 				selIndex:0
 			}
 		},
 		methods: {
+			getPicUrl:function(picUrl) {
+				console.log(baseUrl+'/app/common/download/'+picUrl)
+				return baseUrl+'/app/common/download/'+picUrl;
+			},
 			onBackDidClicked:function() {
 				uni.navigateBack({
 					

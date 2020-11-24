@@ -9,8 +9,8 @@
 		<view class="law-list">
 			<block v-for="(value, index) in contractlist" :key="index">
 				<view class="list-cell" @click="goLawDetail()">
-					<image class="vip" src="../../../static/home/contract/icon_contract_free@3x.png" mode="" v-if="value.isVip"></image>
-					<image class="contract-preview" src="" mode=""></image>
+					<image class="vip" src="../../../static/home/contract/icon_contract_free@3x.png" mode="" v-if="value.price == 0"></image>
+					<image class="contract-preview" :src="getPicUrl(value.imgUrl)" mode=""></image>
 					<view class="contract">
 						<text class="contract-name sigle-row">{{value.name}}</text>
 						<view class="contract-price">
@@ -18,7 +18,7 @@
 								<text>￥</text>
 								<text class="price">{{value.price}}</text>
 							</view>
-							<text class="sales">销量 {{value.sales}}</text>
+							<text class="sales">销量 {{value.buyTimes}}</text>
 						</view>
 					</view>
 				</view>
@@ -30,10 +30,23 @@
 </template>
 
 <script>
+	import {
+		baseUrl
+	} from '@/service/service.js'
+	import {
+		getContractList
+	} from '../../../api/IndexApi.js'
 	import HMfilterDropdown from '@/components/HM-filterDropdown/HM-filterDropdown.vue';
 	export default {
 		components: {
 		   'HMfilterDropdown':HMfilterDropdown 
+		},
+		onLoad() {
+			getContractList({
+				
+			}).then(res => {
+			    this.contractlist = res.data.list
+			});
 		},
 		data() {
 			return {
@@ -311,38 +324,14 @@
 	}
 ],
 				contractlist:[
-					{
-						icon:'',
-						isVip:true,
-						name:'房屋租赁合同房屋租赁合同房屋租赁合同',
-						price:'10931',
-						sales:'5312321'
-					},
-					{
-						icon:'',
-						isVip:false,
-						name:'房屋租赁合同1',
-						price:'546',
-						sales:'34'
-					},
-					{
-						icon:'',
-						isVip:false,
-						name:'房屋租赁合同2',
-						price:'1324',
-						sales:'64'
-					},
-					{
-						icon:'',
-						isVip:false,
-						name:'房屋租赁合同3',
-						price:'989',
-						sales:'38'
-					}
 				]
 			}
 		},
 		methods: {
+			getPicUrl: function(picUrl) {
+				console.log(baseUrl + '/app/common/download/' + picUrl)
+				return baseUrl + '/app/common/download/' + picUrl;
+			},
 			goBack:function() {
 				uni.navigateBack();
 			},
@@ -410,7 +399,6 @@
 	.contract-preview {
 		height: 140px;
 		width: 100%;
-		background-color: #13BF6C;
 	}
 	
 	.contract {

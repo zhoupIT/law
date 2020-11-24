@@ -60,7 +60,6 @@
 .contract-preview {
 	height: 140px;
 	width: 100%;
-	background-color: #13BF6C;
 }
 .contract {
 	-webkit-box-flex: 1;
